@@ -12,10 +12,9 @@ ENV ANDROID_HOME /opt/android-sdk-linux
 ENV PATH $PATH:$ANDROID_HOME/platform-tools/
 
 # Make repositories.cfg
-RUN mkdir $ANDROID_HOME/.android && \
-    echo 'count=0' > $ANDROID_HOME/.android/repositories.cfg
+RUN touch /root/.android/repositories.cfg
 
 # Install components
 RUN echo y | $ANDROID_HOME/tools/bin/sdkmanager --licenses && \
-    $ANDROID_HOME/tools/bin/sdkmanager --update && \
-    $ANDROID_HOME/tools/bin/sdkmanager "extras;google;m2repository" "extras;android;m2repository"
+    echo y | $ANDROID_HOME/tools/bin/sdkmanager --update && \
+    echo y | $ANDROID_HOME/tools/bin/sdkmanager "extras;google;m2repository" "extras;android;m2repository"
