@@ -17,5 +17,5 @@ RUN mkdir $ANDROID_HOME/.android && \
 
 # Install components
 RUN echo y | $ANDROID_HOME/tools/bin/sdkmanager --licenses && \
-    android-sdk-linux/tools/bin/sdkmanager --update && \
-    android-sdk-linux/tools/bin/sdkmanager "extras;google;m2repository" "extras;android;m2repository"
+    $ANDROID_HOME/tools/bin/sdkmanager --update && \
+    $ANDROID_HOME/tools/bin/sdkmanager "extras;google;m2repository" "extras;android;m2repository"
