@@ -12,7 +12,8 @@ ENV ANDROID_HOME /opt/android-sdk-linux
 ENV PATH $PATH:$ANDROID_HOME/platform-tools/
 
 # Make repositories.cfg
-RUN touch /root/.android/repositories.cfg
+RUN mkdir $ANDROID_SDK_HOME/.android && \
+    echo 'count=0' > $ANDROID_SDK_HOME/.android/repositories.cfg
 
 # Install components
 RUN echo y | $ANDROID_HOME/tools/bin/sdkmanager --licenses && \
